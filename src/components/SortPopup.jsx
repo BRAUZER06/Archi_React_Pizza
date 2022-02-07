@@ -1,39 +1,35 @@
 import React from "react";
 
-const SortPopup = ({items}) => {
+const SortPopup = ({ items }) => {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
   const [activItem, setActivItem] = React.useState(0);
 
   const sortRef = React.useRef();
-  const activLabel =  items[activItem]
-  
+  const activLabel = items[activItem].name;
+
   const toggleVisiblePopup = () => {
     setVisiblePopup(!visiblePopup);
   };
 
   const handleOutsiteClick = (e) => {
-   if (!e.path.includes(sortRef.current)){
-    setVisiblePopup(false)
-   }
+    if (!e.path.includes(sortRef.current)) {
+      setVisiblePopup(false);
+    }
   };
 
-    const onSelectorItem=(index)=>{
-      setActivItem(index)
-      setVisiblePopup(false)
-    }
+  const onSelectorItem = (index) => {
+    setActivItem(index);
+    setVisiblePopup(false);
+  };
   React.useEffect(() => {
     document.body.addEventListener("click", handleOutsiteClick);
-    
   }, []);
 
   return (
-    <div
-      ref={sortRef}
-      className="sort"
-    >
+    <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
-        className={visiblePopup ? 'rotated' : ''}
+          className={visiblePopup ? "rotated" : ""}
           width="10"
           height="6"
           viewBox="0 0 10 6"
@@ -51,9 +47,16 @@ const SortPopup = ({items}) => {
       {visiblePopup && (
         <div className="sort__popup">
           <ul>
-           {items && items.map((name,index)=>(
-             <li  onClick={()=>onSelectorItem(index)} className={activItem === index ? 'active': ''} key={`${name}_${index}`} >{name} </li>
-           ))}
+            {items &&
+              items.map((obj, index) => (
+                <li
+                  onClick={() => onSelectorItem(index)}
+                  className={activItem === index ? "active" : ""}
+                  key={`${obj.type}_${index}`}
+                >
+                  {obj.name}
+                </li>
+              ))}
           </ul>
         </div>
       )}
