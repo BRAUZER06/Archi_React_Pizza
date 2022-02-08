@@ -10,7 +10,7 @@ function Button({ onClick, className, outline, children }) {
         "button--outline": outline,
       })}
     >
-      {children}
+      {children }
     </button>
   );
 }

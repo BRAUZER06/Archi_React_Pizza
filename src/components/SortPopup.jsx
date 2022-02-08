@@ -22,7 +22,7 @@ const SortPopup = ({ items }) => {
     setVisiblePopup(false);
   };
   React.useEffect(() => {
-    document.body.addEventListener("click", handleOutsiteClick);
+    document .body.addEventListener("click", handleOutsiteClick);
   }, []);
 
   return (

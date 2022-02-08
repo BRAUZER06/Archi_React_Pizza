@@ -4,7 +4,7 @@ function Categories({ items, onClickItem }) {
   const [activItem, setActivItem] = React.useState(null);
  
 
-  const onSelectItem = (index)=>{
+  const onSelectItem = ( index)=>{
     setActivItem(index)
    
     
