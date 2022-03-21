@@ -1,4 +1,4 @@
-@import '../variables';
+@import 'variables';
 
 .sort {
   position: relative;
@@ -9,7 +9,8 @@
     svg {
       margin-right: 8px;
       transform: rotate(180deg);
-      &.rotated{
+
+      &.rotated {
         transform: rotate(0);
       }
     }
